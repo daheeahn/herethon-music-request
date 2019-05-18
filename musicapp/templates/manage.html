@@ -1,0 +1,23 @@
+<script language="javascript">
+    var index = 0;
+    function check() {
+        alert(index);
+        index = 1;
+    }
+</script>
+
+<input value="check" type="button" onClick="javascript:check();" id="check">
+
+
+
+manage
+
+
+<hr>
+{% for music in allmusic %}
+    가수 : {{music.artist}} <br>
+    곡 제목 : {{music.title}} <br>
+    시간 : {{music.date}} <br>
+    <br>
+{% endfor %}
+
