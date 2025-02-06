@@ -1,88 +1,89 @@
 <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
 </head>
 
-
 <script language="javascript">
-    class Index {
-        constructor(index) {
-            this.index = index;
-        }
-        
-        getIndex() {
-            return this.index;
-        }
-        
-        setIndex(index) {
-            this.index = index;
-        }
+  class Index {
+    constructor(index) {
+      this.index = index;
     }
-    
-    let index = new Index(0);
 
-    var i = 0;
-    
-    // console.log(index.getIndex());
-
-    // window.onload = function() {
-    function focus() {
-        // alert(index.getIndex());
-        // if (index.getIndex() == 0) {
-        if (i == 0) {
-            document.getElementById("artist").focus();
-        }
-        // else if (index.getIndex() == 1) {
-        else if (i == 1) {
-            document.getElementById("title").focus();
-        }
+    getIndex() {
+      return this.index;
     }
-    // };
 
-    function writeCheck() {
-        var form = document.writeform;
-
-        if (!form.artist.value) {
-            alert("가수를 적어주세요");
-            form.artist.focus();
-            i = 0;
-            // index.setIndex(0);
-        }
-        else if (!form.title.value) {
-            alert("곡 제목을 적어주세요");
-            form.title.focus();
-            i = 1;
-            // index.setIndex(1);
-            // console.log(index.getIndex())
-        }
-        else {
-            form.submit();
-            alert("곡 신청 성공!");
-            i = 0;
-            // index.setIndex(0);
-            // window.location.reload(true);
-            // form.title.focus();
-        }    
+    setIndex(index) {
+      this.index = index;
     }
+  }
+
+  let index = new Index(0);
+
+  var i = 0;
+
+  // console.log(index.getIndex());
+
+  // window.onload = function() {
+  function focus() {
+    // alert(index.getIndex());
+    // if (index.getIndex() == 0) {
+    if (i == 0) {
+      document.getElementById("artist").focus();
+    }
+    // else if (index.getIndex() == 1) {
+    else if (i == 1) {
+      document.getElementById("title").focus();
+    }
+  }
+  // };
+
+  function writeCheck() {
+    var form = document.writeform;
+
+    if (!form.artist.value) {
+      alert("가수를 적어주세요");
+      form.artist.focus();
+      i = 0;
+      // index.setIndex(0);
+    } else if (!form.title.value) {
+      alert("곡 제목을 적어주세요");
+      form.title.focus();
+      i = 1;
+      // index.setIndex(1);
+      // console.log(index.getIndex())
+    } else {
+      form.submit();
+      alert("곡 신청 성공!");
+      i = 0;
+      // index.setIndex(0);
+      // window.location.reload(true);
+      // form.title.focus();
+    }
+  }
 </script>
-  
 
 <div class="container">
+  <script type="text/javascript">
+    focus();
+  </script>
 
-    <script type="text/javascript">
-        focus();
-    </script>
-          
-    선곡해주세요s
-    <hr>
+  선곡해주세요
+  <hr />
 
-    <form name=writeform action="{% url 'apply' %}" method="POST">
-        {% csrf_token %}
-        가수 : <input type="text" id="artist" name="artist"> <br><br>
-        곡 제목 : <input type="text" id="title" name="title"> <br><br>
+  <form name="writeform" action="{% url 'apply' %}" method="POST">
+    {% csrf_token %} 가수 : <input type="text" id="artist" name="artist" />
+    <br /><br />
+    곡 제목 : <input type="text" id="title" name="title" /> <br /><br />
 
-        <input type="submit" value="노래 틀어주세요!" OnClick="javascript:writeCheck();">
-    </form>
-
+    <input
+      type="submit"
+      value="노래 틀어주세요!"
+      OnClick="javascript:writeCheck();"
+    />
+  </form>
 </div>
